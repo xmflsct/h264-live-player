@@ -21,8 +21,8 @@ app.use(express.static(__dirname + '/vendor/dist'));
 
 const server  = http.createServer(app);
 const silence = new WebStreamerServer(server, {
-  width : 640,
-  height: 480,
+  width : 1280,
+  height: 720,
 });
 
 server.listen(8080);
