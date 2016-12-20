@@ -1,30 +1,35 @@
 <html>
-  <head>
-    <title>h264-live-player web client demo</title>
-  </head>
-  <body>
 
-    <button type="button" onclick="wsavc.playStream()">Start Video</button>
-    <button type="button" onclick="wsavc.stopStream()">Stop Video</button>
-    <button type="button" onclick="wsavc.disconnect()">Disconnect</button>
-    <br/>
+<head>
+    <title>Round&Round Camera Surveillance</title>
+    <style>
+        body {
+            background: black;
+        }
+        canvas#cam1 {
+            border: 1px red dotted;
+            width: 98%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
 
-  <!-- provide WSAvcPlayer -->
-    <script type="text/javascript" src="http-live-player.js">;</script>
-    <script type="text/javascript">
-
-var canvas = document.createElement("canvas");
-document.body.appendChild(canvas);
-
-// Create h264 player
-var uri = "ws://" + document.location.host;
-var wsavc = new WSAvcPlayer(canvas, "webgl", 1, 35);
-wsavc.connect(uri);
-
-
-//expose instance for button callbacks
-window.wsavc = wsavc;
-
+<body>
+    <canvas id="cam1"></canvas>
+    <script type="text/javascript" src="http-live-player.js">
+        ;
     </script>
-  </body>
+    <script type="text/javascript">
+        var canvas1 = document.getElementById("cam1");
+
+        // Create h264 player
+        var uri = "ws://" + document.location.host;
+        var wsavc = new WSAvcPlayer(canvas1, "webgl", 1, 35);
+        wsavc.connect(uri);
+    </script>
+</body>
+
 </html>
