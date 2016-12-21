@@ -26,8 +26,7 @@
         var canvas1 = document.getElementById("cam1");
 
         // Create h264 player
-        // var uri = "wss://" + document.location.host + "/" + window.location.pathname;
-        var uri = "ws://" + document.location.host;
+        var uri = "wss://" + document.location.host + "/" + window.location.pathname;
         var wsavc = new WSAvcPlayer(canvas1, "webgl", 1, 35);
         wsavc.connect(uri);
     </script>
